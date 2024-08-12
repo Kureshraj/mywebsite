@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priyam Singh - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db; /* Vivid Blue */
+            --secondary-color: #2ecc71; /* Emerald Green */
+            --accent-color: #e74c3c; /* Bright Red */
+            --text-color: #333; /* Dark Gray */
+            --bg-color: #ecf0f1; /* Light Gray */
+            --highlight-bg-color: #ffffff; /* White */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #ffffff;
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            transform: perspective(600px) rotateX(15deg);
+            transition: transform 0.5s ease;
+        }
+
+        header:hover h1 {
+            transform: perspective(600px) rotateX(0deg);
+        }
+
+        nav {
+            background-color: var(--highlight-bg-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        nav:hover {
+            background-color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--highlight-bg-color);
+        }
+
+        section {
+            background-color: var(--highlight-bg-color);
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #c0392b;
+            transform: scale(1.05);
+        }
+
+        .skill {
+            margin-bottom: 1rem;
+            position: relative;
+            padding: 12px;
+            border-radius: 8px;
+            background-color: var(--highlight-bg-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .skill:hover {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            transform: scale(1.03);
+        }
+
+        .skill-info {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: absolute;
+            left: 0;
+            top: 100%;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 1;
+        }
+
+        .skill:hover .skill-info {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-highlight {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 -4px 8px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul li {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .container {
+                width: 95%;
+            }
+
+            .skills-container {
+                padding: 0;
+            }
+        }
+
+        .container {
+            position: relative;
+            padding: 0 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-container {
+            position: relative;
+        }
+
+        .skills-container .skill-item {
+            position: relative;
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: var(--highlight-bg-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            overflow: hidden;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skills-container .skill-item:hover {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        .skills-container .skill-item:hover .skill-info {
+            background-color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Priyam Singh</h1>
+            <p>Process Specialist | Sales Professional</p>
+            <a href="#contact" class="btn">Contact Me</a>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>I'm Priyam Singh, a dedicated Process Specialist with extensive experience in sales and customer service. Currently working at Infosys, I excel in strategy development, client retention, and team training, striving to deliver exceptional customer experiences.</p>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="container">
+                <h2>Professional Experience</h2>
+                <div class="job">
+                    <h3>Process Specialist - Infosys</h3>
+                    <p>September 2023 - Present</p>
+                    <ul>
+                        <li>Working as Process expert/trainer for Verizon (US).</li>
+                        <li>Awarded Ultimate Prime Excellence for best performance in training.</li>
+                        <li>Recognized for exceptional sales and customer satisfaction scores.</li>
+                        <li>Supporting and training production and training teams to meet targets.</li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <h3>Subject Matter Expert - Tech Mahindra</h3>
+                    <p>December 2020 - August 2023</p>
+                    <ul>
+                        <li>Developed strategies to retain Vodafone customers.</li>
+                        <li>Managed complaints, escalations, and supervisor calls for Care & CSI & Retentions.</li>
+                        <li>Subject matter expert for Northstar batch 2, supporting multiple teams.</li>
+                        <li>Analyzed repeat data and maintained performance metrics.</li>
+                        <li>Awarded Bravo Award twice and Pat on the Back Award for performance.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2>Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-item">
+                        <p>Salesforce</p>
+                        <div class="skill-info">Proficient in Salesforce for customer relationship management and sales operations.</div>
+                    </div>
+                    <div class="skill-item">
+                        <p>PowerBI</p>
+                        <div class="skill-info">Experienced in PowerBI for creating interactive data visualizations and reports.</div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Advanced Excel</p>
+                        <div class="skill-info">Skilled in advanced Excel functions, data analysis, and complex calculations.</div>
+                    </div>
+                    <div class="skill-item">
+                        <p>BookKeeping & Data Entry</p>
+                        <div class="skill-info">Expert in bookkeeping and accurate data entry for financial management.</div>
+                    </div>
+                    <div class="skill-item">
+                        <p>SQL</p>
+                        <div class="skill-info">Experienced in SQL for database management and data querying.</div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Citrix</p>
+                        <div class="skill-info">Proficient in Citrix for virtual desktop and application delivery.</div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Krypton</p>
+                        <div class="skill-info">Competent in using Krypton for project management and communication.</div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Genesys</p>
+                        <div class="skill-info">Experienced in Genesys for customer engagement and support solutions.</div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Siebel CRM</p>
+                        <div class="skill-info">Skilled in using Siebel CRM for comprehensive customer relationship management.</div>
+                    </div>
+                    <div class="skill-item">
+                        <p>OneView</p>
+                        <div class="skill-info">Expert in OneView for business intelligence and data analytics.</div>
+                    </div>
+                    <div class="skill-item">
+                        <p>AWS</p>
+                        <div class="skill-info">Proficient in AWS cloud services for scalable and secure computing.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="container">
+                <h2>Education</h2>
+                <div class="education">
+                    <h3>B.Com (Honors) in Finance & Accountancy</h3>
+                    <p>University of Calcutta, 2019</p>
+                </div>
+                <div class="education">
+                    <h3>SSC (ICSE)</h3>
+                    <p>Little Flower School, Jamshedpur, 2012</p>
+                </div>
+                <div class="education">
+                    <h3>HSC (ISC)</h3>
+                    <p>Little Flower School, Jamshedpur, 2014</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Contact Me</h2>
+                <div class="contact-highlight">
+                    <p>Email: <a href="mailto:priyal.singh456@gmail.com">priyal.singh456@gmail.com</a></p>
+                    <p>Phone: <a href="tel:+917992395057">+91 7992395057</a></p>
+                    <p>Location: Jamshedpur, Jharkhand</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Priyam Singh. All rights reserved.</p>
+    </footer>
+</body>
+</html>
